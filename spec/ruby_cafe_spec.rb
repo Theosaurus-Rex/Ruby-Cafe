@@ -8,13 +8,13 @@ describe MenuItem do
         name = "latte"
         price = 4.00
         menu_item = MenuItem.new(name, price)
-        expect (menu_item.price).to eq(price)
+        expect(menu_item.price).to eq(price)
     end
     it 'should return the name of the item' do
         name = "latte"
         price = 4.00
         menu_item = MenuItem.new(name, price)
-        expect (menu_item.name).to eq(name)
+        expect(menu_item.name).to eq(name)
     end
 end
 
@@ -40,7 +40,7 @@ describe Order do
         order = Order.new
         name = "latte"
         quantity = 2
-        order.add_item(name, quantity)
+        order.add_item("latte", 2)
         expect(order.get_items().length).to be(2)
     end
     it "should update an item quantity for items already ordered" do
@@ -60,5 +60,11 @@ describe Cafe do
         menu_items = {latte: 4.00, tea: 2.00}
         cafe = Cafe.new(name, menu_items)
         expect(cafe.welcome).to eq(nil)
+    end
+    it 'should define a print menu method' do
+        name = "My Cafe"
+        menu_items = {latte: 4.00, tea: 2.00}
+        cafe = Cafe.new(name, menu_items)
+        expect(cafe.print_menu).to eq(nil)
     end
 end
